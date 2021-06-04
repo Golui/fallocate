@@ -1,3 +1,8 @@
+.PHONY: all
 
-test_linux: test_linux.cpp fallocate.h fallocate.cpp
-	g++ -o test_linux -I. test_linux.cpp fallocate.cpp
+all: lib
+
+lib:
+	g++ -o fallocate.o -I. -c fallocate.cpp
+	ar rcs libfallocate.a fallocate.o
+
